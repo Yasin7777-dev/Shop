@@ -3,7 +3,7 @@ from django.urls import path
 from graphene_django.views import GraphQLView
 from products.schema import schema
 from django.conf.urls.static import static
-
+from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     
