@@ -16,23 +16,19 @@ import dj_database_url
 BASE_DIR = Path(__file__).resolve().parent.parent
 import os
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-wz!%tfb8fe1!dk)j!tdcl5%t45#nhm=-*n$42d@57ihfk=jly3'
 
-# SECURITY WARNING: don't run with debug turned on in production!
+
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
 CSRF_TRUSTED_ORIGINS = ['https://*']
 
-# Application definition
 
 INSTALLED_APPS = [
-    # стандартные приложения Django
+ 
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,10 +36,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # приложения для GraphQL
+   
     'graphene_django',
 
-    # ваше приложение
+ 
     'products',
 ]
 
