@@ -6,7 +6,7 @@ from .models import Product
 class ProductType(DjangoObjectType):
     class Meta:
         model = Product
-        fields = ("id", "name", "description", "price")
+        fields = '__all__'
 
 
 class Query(graphene.ObjectType):
@@ -33,11 +33,12 @@ class CreateProduct(graphene.Mutation):
         name = graphene.String(required=True)
         description = graphene.String(required=True)
         price = graphene.Float(required=True)
+        category = graphene.String(required=True)
+        color = graphene.String(required=True)
 
-    def mutate(root, info, name, description, price):
-        product = Product(name=name, description=description, price=price)
-        product.save()
-        return CreateProduct(product=product, id=product.id)
+    def mutate(root, info, name, description, price,category,color):
+        product = Product.objects.create(name=name, description=description, price=price, category=category, color=color)
+        return CreateProduct(product=product)
 
 
 class Mutation(graphene.ObjectType):
